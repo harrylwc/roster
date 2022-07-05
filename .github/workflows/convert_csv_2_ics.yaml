@@ -74,7 +74,7 @@ jobs:
       - name: Run a multi-line script
         run: |
           echo pwd
-          icsconverter.py google_cal_08311.csv
+          python2 icsconverter.py google_cal_08311.csv
           #echo 
           
       -  name: SSH connection for failure Debug
