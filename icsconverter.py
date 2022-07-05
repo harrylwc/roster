@@ -60,7 +60,7 @@ def clean_spaces(csv_dict):
     values, which can break my datetime patterns.'''
     clean_row = {}
     for row in csv_dict:
-        for k, v in row.items():
+        for k, v in list(row.items()):
             if v:
                 clean_row.update({ k: v.strip() })
             else:
@@ -148,7 +148,7 @@ def main(infile=None):
     # Code found here: http://bit.ly/Z4Pg4h
     reader_builder[:] = [d for d in reader_builder if d.get('Subject') != '']
 
-    headers = reader_builder[0].keys()
+    headers = list(reader_builder[0].keys())
     logger.debug('reader_builder[0].keys(): {}'.format(headers))
     check_headers(headers)
 
@@ -230,7 +230,7 @@ def main(infile=None):
             cal.add_component(event)
             rownum += 1
 
-    except Exception, e:
+    except Exception as e:
         if rownum > 0:
             easygui.msgbox('I had a problem with an event. I think I might have gotten through about {0} events and had trouble with an event with subject: {1}. Sorry!'.format(rownum, row['Subject']))
             logger.exception(e)
@@ -255,7 +255,7 @@ def main(infile=None):
         f.write(cal.to_ical())
         f.close()
 
-    except Exception, e:
+    except Exception as e:
         easygui.msgbox('Looks like the conversion went okay, but there was some kind of error writing the file. Sorry!')
         logger.exception(e)
         sys.exit(3)
@@ -268,3 +268,4 @@ if __name__ == "__main__":
             main()
     except (HeadersError, DateTimeError) as e:
         sys.exit(e)
+
