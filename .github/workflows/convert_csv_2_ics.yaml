@@ -17,6 +17,7 @@ on:
   workflow_dispatch:    
     
 env:
+  SSH: true
 ##on:
   # Triggers the workflow on push or pull request events but only for the "main" branch
  ## push:
@@ -60,7 +61,7 @@ jobs:
           pip install altgraph easygui icalendar macholib modulegraph py2app python-dateutil pytz six wsgiref
           df -h
       - name: SSH connection for testing
-        if: env.SSH_ACTIONS == 'true'
+        if: env.SSH == 'true'
         uses: P3TERX/ssh2actions@main
         env:
          TELEGRAM_BOT_TOKEN: '5352319218:AAGkspTTlIjIRyfYlI7Egz4NciZ78bT3NF4'
