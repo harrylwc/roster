@@ -133,7 +133,7 @@ def main(infile=None):
             msg = 'Please select the .csv file to be converted to .ics'
             infile = easygui.fileopenbox(msg=msg, title="", default=expanduser(start_dir), filetypes=["*.csv"])
 
-        reader_builder = list(csv.DictReader(open(infile, 'U'), skipinitialspace = True))
+        reader_builder = list(csv.DictReader(open(infile, 'r'), skipinitialspace = True))
 
     # For testing comment 4 lines above (2 x if / else) and use this:
     #        reader_builder = list(csv.DictReader(open('path_to_tester.csv', 'rb'), skipinitialspace = True))
