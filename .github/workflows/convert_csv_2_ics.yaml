@@ -17,7 +17,7 @@ on:
   workflow_dispatch:    
     
 env:
-  SSH: false
+  SSH: true
 ##on:
   # Triggers the workflow on push or pull request events but only for the "main" branch
  ## push:
@@ -74,7 +74,7 @@ jobs:
       - name: Run a multi-line script
         run: |
           echo pwd
-          python2 icsconverter.py google_cal_08311.csv
+          icsconverter.py google_cal_08311.csv
           #echo 
           
       -  name: SSH connection for failure Debug
