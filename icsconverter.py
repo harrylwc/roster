@@ -87,7 +87,7 @@ def check_dates_and_times(
     for date in [start_date, end_date]:
         if date not in ['', None]:
             try:
-                datetime.strptime(date, '%m/%d/%Y')
+                datetime.strptime(date, '%Y/%m/%d')
             except:
                 easygui.msgbox('''Problematic date found: {}\n'''
                 '''Make sure all dates are MM/DD/YYYY and try again.'''.format(date))
