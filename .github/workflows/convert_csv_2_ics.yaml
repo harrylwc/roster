@@ -74,7 +74,7 @@ jobs:
           #echo 
       - name: update file and push to remote
         run: |
-          echo "Test push commit to the remote in the workflow" >> test.txt
+          #echo "Test push commit to the remote in the workflow" >> test.txt
           git config --global user.name "harrylwc"
           git config --global user.email "harrylwc@gmail.com"
           git remote set-url --push origin https://harrylwc@gmail.com:$GITHUB_TOKEN@github.com/harrylwc/roster
