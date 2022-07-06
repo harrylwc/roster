@@ -161,6 +161,7 @@ def main(infile=None):
     cal.add('X-WR-TIMEZONE', 'Asia/Hong_Kong')
     cal.add('X-WR-CALNAME', '更表')
     cal.add('X-WR-CALDESC', '更表')
+    cal.add('CALSCALE', 'GREGORIAN')
 
     # Write the clean list of dictionaries to events.
     rownum = 0
@@ -192,9 +193,9 @@ def main(infile=None):
                 event.add('dtstart;TZID=Asia/Hong_Kong', datetime.strptime(row['Start Date'], '%m/%d/%Y' ).date())
 
                 if row.get('End Date') in ['', None]:
-                    event.add('dtend;TZID=Asia/Hong_Kong', (datetime.strptime(row['Start Date'], '%m/%d/%Y' ) + timedelta(days=1)).date())
+                    event.add('dtend', (datetime.strptime(row['Start Date'], '%m/%d/%Y' ) + timedelta(days=1)).date())
                 else:
-                    event.add('dtend;TZID=Asia/Hong_Kong', (datetime.strptime(row['End Date'], '%m/%d/%Y' ) + timedelta(days=1)).date())
+                    event.add('dtend', (datetime.strptime(row['End Date'], '%m/%d/%Y' ) + timedelta(days=1)).date())
 
             # Continue processing events not marked as "all day" events.
             else:
