@@ -189,12 +189,12 @@ def main(infile=None):
                 # All-day events will not be marked as 'busy'
                 event.add('transp', 'TRANSPARENT')
 
-                event.add('dtstart', datetime.strptime(row['Start Date'], '%m/%d/%Y' ).date())
+                event.add('dtstart;TZID=Asia/Hong_Kong', datetime.strptime(row['Start Date'], '%m/%d/%Y' ).date())
 
                 if row.get('End Date') in ['', None]:
-                    event.add('dtend', (datetime.strptime(row['Start Date'], '%m/%d/%Y' ) + timedelta(days=1)).date())
+                    event.add('dtend;TZID=Asia/Hong_Kong', (datetime.strptime(row['Start Date'], '%m/%d/%Y' ) + timedelta(days=1)).date())
                 else:
-                    event.add('dtend', (datetime.strptime(row['End Date'], '%m/%d/%Y' ) + timedelta(days=1)).date())
+                    event.add('dtend;TZID=Asia/Hong_Kong', (datetime.strptime(row['End Date'], '%m/%d/%Y' ) + timedelta(days=1)).date())
 
             # Continue processing events not marked as "all day" events.
             else:
@@ -209,18 +209,18 @@ def main(infile=None):
 
                 # Allow either 24 hour time or 12 hour + am/pm
                 if row['Start Time'][-2:].lower() in ['am','pm']:
-                    event.add('dtstart', datetime.strptime(row['Start Date'] + row['Start Time'], '%m/%d/%Y%I:%M%p' ))
+                    event.add('dtstart;TZID=Asia/Hong_Kong', datetime.strptime(row['Start Date'] + row['Start Time'], '%m/%d/%Y%I:%M%p' ))
                 else:
-                    event.add('dtstart', datetime.strptime(row['Start Date'] + row['Start Time'], '%m/%d/%Y%H:%M' ))
+                    event.add('dtstart;TZID=Asia/Hong_Kong', datetime.strptime(row['Start Date'] + row['Start Time'], '%m/%d/%Y%H:%M' ))
 
                 # Allow blank end dates (assume same day)
                 if row.get('End Date') in ['', None]:
                     row['End Date'] = row['Start Date']
 
                 if row['End Time'][-2:].lower() in ['am','pm']:
-                    event.add('dtend', datetime.strptime(row['End Date'] + row['End Time'], '%m/%d/%Y%I:%M%p' ))
+                    event.add('dtend;TZID=Asia/Hong_Kong', datetime.strptime(row['End Date'] + row['End Time'], '%m/%d/%Y%I:%M%p' ))
                 else:
-                    event.add('dtend', datetime.strptime(row['End Date'] + row['End Time'], '%m/%d/%Y%H:%M' ))
+                    event.add('dtend;TZID=Asia/Hong_Kong', datetime.strptime(row['End Date'] + row['End Time'], '%m/%d/%Y%H:%M' ))
 
             if row.get('Description'):
                 event.add('description', row['Description'])
