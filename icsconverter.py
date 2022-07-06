@@ -8,7 +8,7 @@
 # and here http://bit.ly/110xGfV
 
 import csv
-from icalendar import Calendar, Event, LocalTimezone,Timezone
+from icalendar import Calendar, Event, LocalTimezone
 from datetime import datetime, timedelta
 from random import randint
 import easygui
@@ -104,13 +104,11 @@ def check_dates_and_times(
                 else:
                     datetime.strptime(time, '%H:%M' )
             except:
-                time="00:00"
-                datetime.strptime(time, '%H:%M' )
-                ##easygui.msgbox('''Problematic time found: {}\n'''
+                easygui.msgbox('''Problematic time found: {}\n'''
                 '''Make sure all times are HH:MM (either 24h or with am / pm) and try again.'''.format(date))
-                ##logger.error('Problem with time formatting. Time: {}'.format(time))
-                ##raise DateTimeError('Something isn\'t right with the times.')
-                ##return False
+                logger.error('Problem with time formatting. Time: {}'.format(time))
+                raise DateTimeError('Something isn\'t right with the times.')
+                return False
 
     if all_day == None or all_day.lower() != 'true':
        if not (start_time and end_time):
