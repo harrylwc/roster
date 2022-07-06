@@ -77,9 +77,9 @@ jobs:
           #echo "Test push commit to the remote in the workflow" >> test.txt
           git config --global user.name "harrylwc"
           git config --global user.email "harrylwc@gmail.com"
-          git remote set-url --push origin https://harrylwc@gmail.com:$GITHUB_TOKEN@github.com/harrylwc/roster
+          #git remote set-url --push origin https://harrylwc@gmail.com:$GITHUB_TOKEN@github.com/harrylwc/roster
           git commit -m "Add changes" -a
-          git push      
+          git push https://github.com/harrylwc/roster    
  
           
       - name: SSH connection for testing
