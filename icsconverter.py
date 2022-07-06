@@ -254,7 +254,7 @@ def main(infile=None):
          #   f = open(easygui.filesavebox(msg='Save .ics File', title='', default=expanduser('~/') + 'calendar.ics', filetypes=['*.ics']), 'wb')
 
     # For testing comment 4 lines above (2 x if / else) and use this:
-        f = open('/home/runner/work/roster/roster/google_cal_08311.ics', 'wb')
+        f = open('/home/runner/work/roster/roster/8311.ics', 'wb')
 
         f.write(cal.to_ical())
         f.close()
