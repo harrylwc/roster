@@ -211,7 +211,7 @@ def main(infile=None):
                 if row['Start Time'][-2:].lower() in ['am','pm']:
                     event.add('dtstart;TZID=Asia/Hong_Kong', datetime.strptime(row['Start Date'] + row['Start Time'], '%m/%d/%Y%I:%M%p' ))
                 else:
-                    event.add('dtstart;TZID=Asia/Hong_Kong', datetime.strptime(row['Start Date'] + row['Start Time'], '%m/%d/%Y%H:%M' ))
+                    event.add('dtstart;TZID=Asia/Hong_Kong', datetime.strptime(row['Start Date'] + row['Start Time'], '%m/%d/%YT%H:%M' ))
 
                 # Allow blank end dates (assume same day)
                 if row.get('End Date') in ['', None]:
@@ -220,7 +220,7 @@ def main(infile=None):
                 if row['End Time'][-2:].lower() in ['am','pm']:
                     event.add('dtend;TZID=Asia/Hong_Kong', datetime.strptime(row['End Date'] + row['End Time'], '%m/%d/%Y%I:%M%p' ))
                 else:
-                    event.add('dtend;TZID=Asia/Hong_Kong', datetime.strptime(row['End Date'] + row['End Time'], '%m/%d/%Y%H:%M' ))
+                    event.add('dtend;TZID=Asia/Hong_Kong', datetime.strptime(row['End Date'] + row['End Time'], '%m/%d/%YT%H:%M' ))
 
             if row.get('Description'):
                 event.add('description', row['Description'])
