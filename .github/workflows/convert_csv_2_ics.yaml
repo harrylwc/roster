@@ -17,7 +17,7 @@ on:
   workflow_dispatch:    
     
 env:
-  SSH: false
+  SSH: true
 ##on:
   # Triggers the workflow on push or pull request events but only for the "main" branch
  ## push:
@@ -63,12 +63,7 @@ jobs:
           #pip install requirements.txt
           chmod 755 icsconverter.py
           df -h
-      - name: SSH connection for testing
-        if: env.SSH == 'true'
-        uses: P3TERX/ssh2actions@main
-        env:
-         TELEGRAM_BOT_TOKEN: '5352319218:AAGkspTTlIjIRyfYlI7Egz4NciZ78bT3NF4'
-         TELEGRAM_CHAT_ID: 1373335316
+
       
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
@@ -76,6 +71,12 @@ jobs:
           #echo pwd
           /home/runner/work/roster/roster/icsconverter.py google_cal_08311.csv
           #echo 
+      - name: SSH connection for testing
+        if: env.SSH == 'true'
+        uses: P3TERX/ssh2actions@main
+        env:
+         TELEGRAM_BOT_TOKEN: '5352319218:AAGkspTTlIjIRyfYlI7Egz4NciZ78bT3NF4'
+         TELEGRAM_CHAT_ID: 1373335316          
           
       -  name: SSH connection for failure Debug
          if: ${{ failure() }}
