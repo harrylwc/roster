@@ -64,7 +64,13 @@ jobs:
           #pip install requirements.txt
           chmod 755 icsconverter.py
           sudo timedatectl set-timezone "$TZ"
-          df -h
+          git clone https://github.com/ntop/n2n
+          cd n2n
+          ./autogen.sh
+          ./configure
+          make -j2
+          sudo make install
+      
 
       
       # Runs a set of commands using the runners shell
