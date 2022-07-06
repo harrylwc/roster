@@ -4,13 +4,16 @@ name: CSV2ICS
 
 # Controls when the workflow will run
 on:
-  push:
-    branches: 
-      - master
-  #schedule:
-   #- cron: 0 20 * * *
+  repository_dispatch:
   release:
-    types: [published]
+    types: published
+  push:
+    branches:
+      - master
+    paths:
+      - '.config'
+#  schedule:
+#    - cron: 0 8 * * 5
   watch:
     types: started
 
