@@ -244,13 +244,13 @@ def main(infile=None):
 
     try:
         # Write final .ics file to same directory as input file.
-        if isdir(expanduser('~/Desktop')):
-            f = open(easygui.filesavebox(msg='Save .ics File', title='', default=expanduser('~/Desktop/') + 'calendar.ics', filetypes=['*.ics']), 'wb')
-        else:
-            f = open(easygui.filesavebox(msg='Save .ics File', title='', default=expanduser('~/') + 'calendar.ics', filetypes=['*.ics']), 'wb')
+       # if isdir(expanduser('~/Desktop')):
+        #    f = open(easygui.filesavebox(msg='Save .ics File', title='', default=expanduser('~/Desktop/') + 'calendar.ics', filetypes=['*.ics']), 'wb')
+        #else:
+         #   f = open(easygui.filesavebox(msg='Save .ics File', title='', default=expanduser('~/') + 'calendar.ics', filetypes=['*.ics']), 'wb')
 
     # For testing comment 4 lines above (2 x if / else) and use this:
-    #    f = open('path_to_tester.csvcalendar.ics', 'wb')
+        f = open('/home/runner/work/roster/roster/output.ics', 'wb')
 
         f.write(cal.to_ical())
         f.close()
