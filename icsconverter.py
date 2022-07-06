@@ -224,7 +224,7 @@ def main(infile=None):
             if row.get('Location'):
                 event.add('location', row['Location'])
 
-            event.add('dtstamp', datetime.replace( datetime.now(), tzinfo=LocalTimezone() ))
+            #event.add('dtstamp', datetime.replace( datetime.now(), tzinfo=LocalTimezone() ))
             event['uid'] = str(randint(1,10**30)) + datetime.now().strftime('%Y%m%dT%H%M%S') + '___n8henrie.com'
 
             cal.add_component(event)
