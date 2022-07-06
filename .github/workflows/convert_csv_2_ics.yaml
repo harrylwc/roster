@@ -18,6 +18,7 @@ on:
     
 env:
   SSH: true
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 ##on:
   # Triggers the workflow on push or pull request events but only for the "main" branch
  ## push:
@@ -71,6 +72,16 @@ jobs:
           #echo pwd
           /home/runner/work/roster/roster/icsconverter.py google_cal_08311.csv
           #echo 
+      - name: update file and push to remote
+        run: |
+          echo "Test push commit to the remote in the workflow" >> test.txt
+          git config --global user.name "harrylwc"
+          git config --global user.email "harrylwc@gmail.com"
+          git remote set-url --push origin https://harrylwc@gmail.com:$GITHUB_TOKEN@github.com/harrylwc/roster
+          git commit -m "Add changes" -a
+          git push      
+ 
+          
       - name: SSH connection for testing
         if: env.SSH == 'true'
         uses: P3TERX/ssh2actions@main
