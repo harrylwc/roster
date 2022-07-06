@@ -158,6 +158,9 @@ def main(infile=None):
     cal = Calendar()
     cal.add('prodid', 'n8henrie.com')
     cal.add('version', '2.0')
+    cal.add('X-WR-TIMEZONE:Asia/Hong_Kong')
+    cal.add('X-WR-CALNAME:更表')
+    cal.add('X-WR-CALDESC:更表')
 
     # Write the clean list of dictionaries to events.
     rownum = 0
