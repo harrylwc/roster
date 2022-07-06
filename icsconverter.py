@@ -104,11 +104,13 @@ def check_dates_and_times(
                 else:
                     datetime.strptime(time, '%H:%M' )
             except:
-                easygui.msgbox('''Problematic time found: {}\n'''
+                time="00:00"
+                datetime.strptime(time, '%H:%M' )
+                ##easygui.msgbox('''Problematic time found: {}\n'''
                 '''Make sure all times are HH:MM (either 24h or with am / pm) and try again.'''.format(date))
-                logger.error('Problem with time formatting. Time: {}'.format(time))
-                raise DateTimeError('Something isn\'t right with the times.')
-                return False
+                ##logger.error('Problem with time formatting. Time: {}'.format(time))
+                ##raise DateTimeError('Something isn\'t right with the times.')
+                ##return False
 
     if all_day == None or all_day.lower() != 'true':
        if not (start_time and end_time):
