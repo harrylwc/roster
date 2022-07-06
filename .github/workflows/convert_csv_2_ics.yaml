@@ -18,6 +18,7 @@ on:
 env:
   SSH: true
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  TZ: Asia/Hong_Kong
 ##on:
   # Triggers the workflow on push or pull request events but only for the "main" branch
  ## push:
@@ -62,6 +63,7 @@ jobs:
           ##wsgiref
           #pip install requirements.txt
           chmod 755 icsconverter.py
+          sudo timedatectl set-timezone "$TZ"
           df -h
 
       
