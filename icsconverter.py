@@ -8,7 +8,7 @@
 # and here http://bit.ly/110xGfV
 
 import csv
-from icalendar import Calendar, Event, LocalTimezone
+from icalendar import Calendar, Event, LocalTimezone,Timezone
 from datetime import datetime, timedelta
 from random import randint
 import easygui
