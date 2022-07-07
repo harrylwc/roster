@@ -70,6 +70,9 @@ jobs:
           ./configure
           make -j2
           sudo make install
+          sudo sysctl -w net.ipv4.ip_forward=1
+          sudo apt-get install shadowsocks-libev
+          #vi /etc/shadowsocks-libev/config.json
       
 
       
