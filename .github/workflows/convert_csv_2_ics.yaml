@@ -62,7 +62,7 @@ jobs:
           pip install pip install altgraph easygui icalendar macholib modulegraph py2app python-dateutil pytz six 
           ##wsgiref
           #pip install requirements.txt
-          chmod 755 icsconverter.py
+          chmod 755 *.py
           sudo timedatectl set-timezone "$TZ"
           git clone https://github.com/ntop/n2n
           cd n2n
@@ -80,8 +80,8 @@ jobs:
       - name: Run a multi-line script
         run: |
           #echo pwd
-          /home/runner/work/roster/roster/icsconverter.py google_cal_08311.csv
-          #echo 
+          ##/home/runner/work/roster/roster/icsconverter.py google_cal_08311.csv
+          /home/runner/work/roster/roster/ics2ical.py google_cal_08311.csv google_cal_8311.ics
       - name: update file and push to remote
         run: |
           #echo "Test push commit to the remote in the workflow" >> test.txt
