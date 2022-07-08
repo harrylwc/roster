@@ -51,7 +51,7 @@ def csv2ical(input_file, output_file):
         continue
       summary = row[0]
       if row[2] == '':
-           dtstart = datetime.strptime(row[1]+' 00:00', '%Y/%m/%d %H:%M')
+           dtstart = datetime.strptime(row[1]+' 13:00', '%Y/%m/%d %H:%M')
            set_alarm = False 
       else: 
            dtstart = datetime.strptime(row[1]+' '+row[2], '%Y/%m/%d %H:%M')
