@@ -69,10 +69,11 @@ def csv2ical(input_file, output_file):
       if set_alarm == True :
          alarm=Alarm()
          alarm.add('ACTION','DISPLAY')         
-         alarm.add('DESCRIPTION','返工啦')
+         alarm.add('DESCRIPTION','Reminder')
+         #'返工啦')
          # The only way to convince Outlook to do it correctly
          alarm.add("trigger", timedelta(hours=-reminderHours))
-         alarm.add("TRIGGER;RELATED=START", "-PT{0}H".format(reminderHours))
+         #alarm.add("TRIGGER;RELATED=START", "-PT{0}H".format(reminderHours))
          alarm.add('REPEAT','3')
          alarm.add('DURATION',duration)
          event.add_component(alarm)
