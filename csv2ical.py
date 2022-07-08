@@ -49,7 +49,9 @@ def csv2ical(input_file, output_file):
            dtstart = datetime.strptime(row[1]+' 00:00', '%Y/%m/%d %H:%M')
       else: 
            dtstart = datetime.strptime(row[1]+' '+row[2], '%Y/%m/%d %H:%M')
+      print(dtstart)
       dtend = dtstart + timedelta(minutes=495) 
+      print(dtend) 
       description = row[5].strip()
       location = row[4].strip()
 
