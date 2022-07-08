@@ -2,6 +2,7 @@
 import csv
 from icalendar import Calendar, Event, Alarm
 from datetime import datetime
+from random import randint
 import argparse
 from datetime import timedelta
 parser = argparse.ArgumentParser()
@@ -77,6 +78,7 @@ def csv2ical(input_file, output_file):
          alarm.add('REPEAT','3')
          alarm.add('DURATION',duration)
          event.add_component(alarm)
+      event['uid'] = str(randint(1,10**30)) + datetime.now().strftime('%Y%m%dT%H%M%S') + '___harrylwc@gmail.com'
       cal.add_component(event)
     with open(output_file, 'wb') as out_f:
       out_f.write(cal.to_ical())
