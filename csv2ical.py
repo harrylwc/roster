@@ -28,7 +28,7 @@ def csv2ical(input_file, output_file):
   """
  
   ### set reminder before shift start ####
-  tigger_before_shift = timedelta(minutes=-int(60)) 
+  reminderHours = 1
   duration = timedelta(minutes=-int(45)) 
   
   with open(input_file) as csv_file:
@@ -68,11 +68,13 @@ def csv2ical(input_file, output_file):
       event.add('location', location)
       if set_alarm == True :
          alarm=Alarm()
-         alarm.add('TRIGGER',tigger_before_shift)
+         alarm.add('ACTION','DISPLAY')         
          alarm.add('DESCRIPTION','返工啦')
+         # The only way to convince Outlook to do it correctly
+         alarm.add("trigger", timedelta(hours=-reminderHours))
+         alarm.add("TRIGGER;RELATED=START", "-PT{0}H".format(reminderHours))
          alarm.add('REPEAT','3')
          alarm.add('DURATION',duration)
-         alarm.add('ACTION','DISPLAY')
          event.add_component(alarm)
       cal.add_component(event)
     with open(output_file, 'wb') as out_f:
