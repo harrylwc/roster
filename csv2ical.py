@@ -1,4 +1,5 @@
-#!/usr/bin/env python
+
+#!/usr/bin/env python3
 
 
 
@@ -44,8 +45,12 @@ def csv2ical(input_file, output_file):
       if n == 0:
         continue
       summary = row[0]
-      dtstart = datetime.strptime(row[1]+' '+row[2], '%Y/%m/%d %H:%M')
-      dtend = datetime.strptime(row[1]+' '+row[3], '%Y/%m/%d %H:%M')
+      if row[2] == '':
+           dtstart = datetime.strptime(row[1]+' 00:00', '%Y/%m/%d %H:%M')
+           dtend = datetime.strptime(row[1]+' 00:00', '%Y/%m/%d %H:%M')
+      else: 
+           dtstart = datetime.strptime(row[1]+' '+row[2], '%Y/%m/%d %H:%M')
+           dtend = datetime.strptime(row[1]+' '+row[3], '%Y/%m/%d %H:%M')
       description = row[5].strip()
       location = row[4].strip()
 
