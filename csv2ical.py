@@ -69,7 +69,7 @@ def csv2ical(input_file, output_file):
       if set_alarm == True :
          alarm=Alarm()
          alarm.add('TRIGGER',tigger_before_shift)
-         alarm.add('DESCRIPTION','Go To Work La') ##'返工啦')
+         alarm.add('DESCRIPTION','返工啦')
          alarm.add('REPEAT','3')
          alarm.add('DURATION',duration)
          alarm.add('ACTION','DISPLAY')
