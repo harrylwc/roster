@@ -3,8 +3,7 @@ import csv
 from icalendar import Calendar, Event
 from datetime import datetime
 import argparse
-
-
+from datetime import timedelta
 parser = argparse.ArgumentParser()
 parser.add_argument('input', type=str, help='Input csv file containing calendar events')
 parser.add_argument('output', type=str, help='Output ics file')
@@ -35,6 +34,11 @@ def csv2ical(input_file, output_file):
     cal = Calendar()
     cal.add('prodid', '-//'+input_file+'//mxm.dk//')
     cal.add('version', '2.0')
+    cal.add('X-WR-TIMEZONE', 'Asia/Hong_Kong')
+    cal.add('X-WR-CALNAME', '更表')
+    cal.add('X-WR-CALDESC', '更表')
+    cal.add('CALSCALE', 'GREGORIAN')
+
 
     for n, row in enumerate(reader):
       #Skip header row
@@ -43,10 +47,9 @@ def csv2ical(input_file, output_file):
       summary = row[0]
       if row[2] == '':
            dtstart = datetime.strptime(row[1]+' 00:00', '%Y/%m/%d %H:%M')
-           dtend = datetime.strptime(row[1]+' 00:00', '%Y/%m/%d %H:%M')
       else: 
            dtstart = datetime.strptime(row[1]+' '+row[2], '%Y/%m/%d %H:%M')
-           dtend = datetime.strptime(row[1]+' '+row[3], '%Y/%m/%d %H:%M')
+      dtend = dtstart + timedelta(minutes=495) 
       description = row[5].strip()
       location = row[4].strip()
 
