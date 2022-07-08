@@ -1,8 +1,4 @@
-
 #!/usr/bin/env python3
-
-
-
 import csv
 from icalendar import Calendar, Event
 from datetime import datetime
