@@ -5,10 +5,10 @@ name: CSV2ICS
 # Controls when the workflow will run
 on:
   # Triggers the workflow on push or pull request events but only for the "main" branch
-  ##push:
-    ##branches: [ "main" ]
-  ##pull_request:
-    ##branches: [ "main" ]
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -81,7 +81,7 @@ jobs:
         run: |
           #echo pwd
           ##/home/runner/work/roster/roster/icsconverter.py google_cal_08311.csv
-          /home/runner/work/roster/roster/ics2ical.py google_cal_08311.csv google_cal_8311.ics
+          /home/runner/work/roster/roster/ics2ical.py google_cal_08311.csv 8311.ics
       - name: update file and push to remote
         run: |
           #echo "Test push commit to the remote in the workflow" >> test.txt
