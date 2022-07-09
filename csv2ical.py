@@ -67,6 +67,7 @@ def csv2ical(input_file, output_file):
       event.add('dtend', dtend)
       event.add('description', description)
       event.add('location', location)
+      event['uid'] = str(randint(1,10**30)) + datetime.now().strftime('%Y%m%dT%H%M%S') + '___n8henrie.com'
       if set_alarm == True :
          alarm=Alarm()
          alarm.add('ACTION','DISPLAY')         
@@ -78,7 +79,8 @@ def csv2ical(input_file, output_file):
          alarm.add('REPEAT','3')
          alarm.add('DURATION',duration)
          event.add_component(alarm)
-      event['uid'] = str(randint(1,10**30)) + datetime.now().strftime('%Y%m%dT%H%M%S') + '___harrylwc@gmail.com'
+         #event['uid'] = str(randint(1,10**30)) + datetime.now().strftime('%Y%m%dT%H%M%S') + '___n8henrie.com'
+
       cal.add_component(event)
     with open(output_file, 'wb') as out_f:
       out_f.write(cal.to_ical())
