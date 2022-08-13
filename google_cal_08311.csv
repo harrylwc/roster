@@ -1,11 +1,4 @@
 Employee No.,Date (yyyy/mm/dd),Scheduled IN (hh:mm),Scheduled OUT (hh:mm),Scheduled Location,Scheduled Status,Remarks,Adjustment Reason,Update Remark Only (Y),Scheduled OT with Status,OT Hours
-08311,2022/08/11,15:10,23:25,CRM,,,,,,
-08311,2022/08/12,15:10,23:25,CRM,,,,,,
-08311,2022/08/13,23:20,7:35,CRM,,,,,,
-08311,2022/08/14,23:20,7:35,CRM,,,,,,
 08311,2022/08/15,23:20,7:35,CRM,,,,,,
-08311,2022/08/16,,,,R,,,,,
-08311,2022/08/17,,,,D,,,,,
-08311,2022/08/18,,,,PH,,,,,
 08311,2022/08/20,15:10,23:25,CRM,,,,,,
 08311,2022/08/21,15:10,23:25,CRM,,,,,,
