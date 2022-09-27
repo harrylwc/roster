@@ -48,7 +48,7 @@ jobs:
       
       - name: Space cleanup
         env:
-          SSH_ACTIONS: true
+          SSH_ACTIONS: false
           DEBIAN_FRONTEND: noninteractive
         run: |
           docker rmi `docker images -q`
@@ -71,6 +71,7 @@ jobs:
           make -j2
           sudo make install
           sudo sysctl -w net.ipv4.ip_forward=1
+          #edge -f -u 0 -g 0 -d edge -a static:10.1.1.150/ -c myhome -l ddns.org -k password &
           sudo apt-get install shadowsocks-libev
           #vi /etc/shadowsocks-libev/config.json
       
