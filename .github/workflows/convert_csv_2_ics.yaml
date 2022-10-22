@@ -16,7 +16,7 @@ on:
   #workflow_dispatch:    
     
 env:
-  SSH: false
+  SSH: true
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   TZ: Asia/Hong_Kong
 ##on:
@@ -48,7 +48,7 @@ jobs:
       
       - name: Space cleanup
         env:
-          SSH_ACTIONS: true
+          SSH_ACTIONS: false
           DEBIAN_FRONTEND: noninteractive
         run: |
           docker rmi `docker images -q`
