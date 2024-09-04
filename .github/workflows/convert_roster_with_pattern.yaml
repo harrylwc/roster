@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: CSV2ICS
+name: convert roster with pre-defined pattern
 
 # Controls when the workflow will run
 on:
