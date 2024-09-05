@@ -50,7 +50,7 @@ def csv2ical(input_file, output_file):
       #Skip header row
       if n == 0:
         continue
-      #summary = row[0]
+      summary = ''
       #print(row[2]) 
       if row[2] == '':
            dtstart = datetime.strptime(row[1]+' 13:00', '%Y/%m/%d %H:%M')
