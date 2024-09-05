@@ -50,7 +50,8 @@ def csv2ical(input_file, output_file):
       #Skip header row
       if n == 0:
         continue
-      summary = row[0]
+      #summary = row[0]
+      #print(row[2]) 
       if row[2] == '':
            dtstart = datetime.strptime(row[1]+' 13:00', '%Y/%m/%d %H:%M')
            set_alarm = False 
@@ -58,6 +59,15 @@ def csv2ical(input_file, output_file):
            dtstart = datetime.strptime(row[1]+' '+row[2], '%Y/%m/%d %H:%M')
            set_alarm = True 
       dtend = dtstart + timedelta(minutes=495) 
+      if len(row[2]) == 5:
+          if row[2] =="07:30":
+            summary = "早" 
+          if row[2] =="15:10":
+            summary = "中"
+          if row[2] == "23:20":
+            summary = "夜"
+          if summary == '':
+            summary = row[2]    
       description = row[5].strip()
       location = row[4].strip()
      
