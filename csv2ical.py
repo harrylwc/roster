@@ -59,7 +59,7 @@ def csv2ical(input_file, output_file):
            dtstart = datetime.strptime(row[1]+' '+row[2], '%Y/%m/%d %H:%M')
            set_alarm = True 
       dtend = dtstart + timedelta(minutes=495) 
-      if len(row[2]) == 5:
+      if len(row[2]) >= 4:
           if row[2] =="07:30" or row[2] =='7:30' :
             summary = "早" 
           if row[2] =="15:10":
